@@ -20,7 +20,10 @@
     "forceConsistentCasingInFileNames": true,        /* Disallow inconsistently-cased references to the same file. */
     "baseUrl": ".",
     "paths": {
-      
+      "@infra/*": ["./src/infra/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
