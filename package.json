@@ -14,6 +14,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node ./dist/server.js",
     "test": "jest",
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
     "prepare": "husky install"
   },
