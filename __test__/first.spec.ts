@@ -5,5 +5,5 @@ test('it should be ok', () => {
 
   user.name = 'Jeordane';
 
-  expect(user.name).toBe('Jeordane Carlos');
+  expect(user.name).toBe('Jeordane');
 });
