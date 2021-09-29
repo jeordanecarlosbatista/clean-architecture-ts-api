@@ -1,3 +1,9 @@
+import { User } from '@models/User';
+
 test('it should be ok', () => {
-  expect(1).toEqual(1);
+  const user = new User();
+
+  user.name = 'Jeordane';
+
+  expect(user.name).toBe('Jeordane');
 });
