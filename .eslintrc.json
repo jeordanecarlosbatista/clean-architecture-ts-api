@@ -16,7 +16,7 @@
     ],
     "rules": {
         "import/no-unresolved": "off",
-        "lines-between-class-members": ["error", "never"],
-        "class-methods-use-this": ["error", "never"]
+        "lines-between-class-members": "off",
+        "class-methods-use-this": "off"
     }
 }
