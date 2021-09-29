@@ -7,7 +7,7 @@
     "*.js,*ts": [
         "eslint --fix",
         "cross-env CI=true npm test --bail --findRelatedTests",
-        "git add"
+        "git add ."
     ]
   },
   "scripts": {
