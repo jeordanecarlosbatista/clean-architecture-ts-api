@@ -20,6 +20,25 @@
         "lines-between-class-members": "off",
         "class-methods-use-this": "off",
         "import/prefer-default-export": "off",
-        "import/extensions": ["error", "never", {"ignorePackages": true } ]
+        "no-redeclare": "off",
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": ["error"],
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": ["error"],
+        "@typescript-eslint/no-redeclare": [
+            "error",
+            {
+              "ignoreDeclarationMerge": true
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+              "argsIgnorePattern": "_"
+            }
+        ],
+        "no-console": "warn",
+        "import/extensions": ["error", "never", {"ignorePackages": true } ],
+        "import/export": "off"
     }
 }
