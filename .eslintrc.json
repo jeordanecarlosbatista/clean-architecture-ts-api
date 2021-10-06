@@ -37,6 +37,8 @@
               "argsIgnorePattern": "_"
             }
         ],
+        "max-len": ["error", { "code": 120 }],
+        "max-classes-per-file": ["error", 10],
         "no-console": "warn",
         "import/extensions": ["error", "never", {"ignorePackages": true } ],
         "import/export": "off"

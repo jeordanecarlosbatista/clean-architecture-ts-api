@@ -1,7 +1,11 @@
 import { LoginController } from '@presentation/controllers';
 import faker from 'faker';
-import { AuthenticationSpy, ValidationSpy } from '@test/presentation/mocks/';
-import { unauthorized } from '@presentation/helpers';
+import { AuthenticationSpy, ValidationSpy } from '@tests/presentation/mocks/';
+import {
+  badRequest, ok, serverError, unauthorized,
+} from '@presentation/helpers';
+import { throwError } from '@tests/domain/mocks';
+import { MissingParamError } from '@presentation/errors';
 
 const mockRequest = (): LoginController.Request => ({
   email: faker.internet.email(),
@@ -42,5 +46,32 @@ describe('Login Controller', () => {
     authenticationSpy.result = null;
     const httpResponse = await sut.handle(mockRequest());
     expect(httpResponse).toEqual(unauthorized());
+  });
+
+  test('Should return 500 if Authentication throws', async () => {
+    const { sut, authenticationSpy } = makeSut();
+    jest.spyOn(authenticationSpy, 'auth').mockImplementationOnce(throwError);
+    const httpResponse = await sut.handle(mockRequest());
+    expect(httpResponse).toEqual(serverError(new Error()));
+  });
+
+  test('Should return 200 if valid credentials are provided', async () => {
+    const { sut, authenticationSpy } = makeSut();
+    const httpResponse = await sut.handle(mockRequest());
+    expect(httpResponse).toEqual(ok(authenticationSpy.result));
+  });
+
+  test('Should call Validation with correct value', async () => {
+    const { sut, validationSpy } = makeSut();
+    const request = mockRequest();
+    await sut.handle(request);
+    expect(validationSpy.input).toEqual(request);
+  });
+
+  test('Should return 400 if Validation returns an error', async () => {
+    const { sut, validationSpy } = makeSut();
+    validationSpy.error = new MissingParamError(faker.random.word());
+    const httpResponse = await sut.handle(mockRequest());
+    expect(httpResponse).toEqual(badRequest(validationSpy.error));
   });
 });

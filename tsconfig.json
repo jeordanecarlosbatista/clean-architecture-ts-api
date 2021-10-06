@@ -26,7 +26,7 @@
             "@main/*": ["./src/main/*"],
             "@presentation/*": ["./src/presentation/*"],
             "@validation/*": ["./src/validation/*"],
-            "@test/*": ["./__test__/*"]
+            "@tests/*": ["./__test__/*"]
 		}
 	},
 	"include": [
