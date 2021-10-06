@@ -1,4 +1,4 @@
-import { unauthorized } from '@presentation/helpers';
+import { badRequest, ok, unauthorized } from '@presentation/helpers';
 import { Controller, HttpResponse } from '@presentation/protocols';
 
 export class LoginController implements Controller {
@@ -8,10 +8,15 @@ export class LoginController implements Controller {
   ) {}
 
   async handle(request: LoginController.Request): Promise<HttpResponse> {
-    console.log(this.authentication);
-    console.log(this.validation);
-    console.log(request);
-    return unauthorized();
+    const error = this.validation.validate(request);
+    if (error) {
+      return badRequest(error);
+    }
+    const authenticationModel = await this.authentication.auth(request);
+    if (!authenticationModel) {
+      return unauthorized();
+    }
+    return ok(authenticationModel);
   }
 }
 
@@ -20,5 +25,4 @@ export namespace LoginController {
       email: string
       password: string
     }
-
   }

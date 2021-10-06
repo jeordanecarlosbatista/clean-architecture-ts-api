@@ -5,7 +5,7 @@
 		"lib": ["es6"],
 		"allowJs": true,
 		"outDir": "dist",
-		"rootDir": "src",
+		"rootDir": ".",
 		"removeComments": true,
 		"strict": true,
 		"typeRoots": [
@@ -25,7 +25,8 @@
             "@infra/*": ["./src/infra/*"],
             "@main/*": ["./src/main/*"],
             "@presentation/*": ["./src/presentation/*"],
-            "@validation/*": ["./src/validation/*"]
+            "@validation/*": ["./src/validation/*"],
+            "@test/*": ["./__test__/*"]
 		}
 	},
 	"include": [
