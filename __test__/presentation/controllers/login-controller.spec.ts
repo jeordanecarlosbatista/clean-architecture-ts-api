@@ -1,6 +1,6 @@
 import { LoginController } from '@presentation/controllers';
 import faker from 'faker';
-import { AuthenticationSpy, ValidationSpy } from '@tests/presentation/mocks/';
+import { AuthenticationSpy, ValidationSpy } from '@tests/presentation/mocks';
 import {
   badRequest, ok, serverError, unauthorized,
 } from '@presentation/helpers';

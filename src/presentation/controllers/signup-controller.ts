@@ -1,6 +1,6 @@
 import { Controller, HttpResponse, Validation } from '@presentation/protocols';
 import {
-  badRequest, serverError, ok, forbidden,
+  badRequest, serverError, forbidden, created,
 } from '@presentation/helpers';
 import { EmailInUseError } from '@presentation/errors';
 import { AddAccount, Authentication } from '@domain/usecases';
@@ -31,7 +31,7 @@ export class SignUpController implements Controller {
         email,
         password,
       });
-      return ok(authenticationModel);
+      return created(authenticationModel);
     } catch (error) {
       return serverError(error);
     }
