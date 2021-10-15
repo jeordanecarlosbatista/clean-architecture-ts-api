@@ -16,8 +16,12 @@ module.exports = function (api) {
         [
             'module-resolver', {
                 alias: {
-                    '@models': './src/models',
-                    '@controllers': './src/controllers'
+                    "@data": "./src/data",
+                    "@domain": "./src/domain",
+                    "@infra": "./src/infra",
+                    "@main": "./src/main",
+                    "@presentation": "./src/presentation",
+                    "@validation": "./src/validation",
                 }
             }
         ]
