@@ -17,6 +17,7 @@
     "test:staged": "npm test --bail --findRelatedTests",
     "test:ci": "cross-env CI=true npm test -- --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
+    "eslint": "eslint 'src/**'",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/main/server.ts",
     "prepare": "husky install"
   },
