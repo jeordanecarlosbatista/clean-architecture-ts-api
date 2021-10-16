@@ -34,6 +34,9 @@ jobs:
 #       - name: eslint
 #         run: npm run eslint
       
+      - name: install dependencies
+        run: npm install
+        
       - name: mongo-inmemory
         uses: yog27ray/mongo-inmemory-action@v1.1.0
         
