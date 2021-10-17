@@ -56,3 +56,6 @@ jobs:
       
       - name: Check Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
