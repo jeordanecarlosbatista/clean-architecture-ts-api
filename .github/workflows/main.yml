@@ -41,9 +41,9 @@ jobs:
         uses: yog27ray/mongo-inmemory-action@v1.1.0
         
       - name: test
-        run: npm run test:coveralls
+        run: npm run test:ci
           
-      - name: publish report test
+      - name: publish test coveralls
         uses: coverallsapp/github-action@1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
