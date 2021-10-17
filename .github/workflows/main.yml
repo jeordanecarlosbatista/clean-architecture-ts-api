@@ -34,22 +34,25 @@ jobs:
 #       - name: eslint
 #         run: npm run eslint
       
-      - name: install dependencies
-        run: npm install
+#       - name: install dependencies
+#         run: npm install
         
-      - name: mongo-inmemory
-        uses: yog27ray/mongo-inmemory-action@v1.1.0
+#       - name: mongo-inmemory
+#         uses: yog27ray/mongo-inmemory-action@v1.1.0
         
-      - name: test
-        run: npm run test:ci
+#       - name: test
+#         run: npm run test:ci
           
-      - name: publish test coveralls
-        uses: coverallsapp/github-action@1.1.3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#       - name: publish test coveralls
+#         uses: coverallsapp/github-action@1.1.3
+#         with:
+#           github-token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Scan on SonnarCloud
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+      - name: Check Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1.0.0
