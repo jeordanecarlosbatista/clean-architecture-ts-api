@@ -11,16 +11,16 @@ services:
   api:
     container_name: api-container
     image: node:14
-    working_dir: /usr/src/clean-node-api
+    working_dir: /usr/src/clean-architecture-api
     restart: always
-    command: bash -c "npm install --only=prod && npm run debug"
+    command: bash -c "npm install --only=prod && npm start"
     environment:
-      - MONGO_URL=mongodb://mongo:27017/clean-node-api
+      - MONGO_URL=mongodb://mongo:27017/clean-architecture-api
     volumes:
-      - ./dist/:/usr/src/clean-node-api/dist/
-      - ./package.json:/usr/src/clean-node-api/package.json
+      - ./dist/:/usr/src/clean-architecture-api/dist/
+      - ./package.json:/usr/src/clean-architecture-api/package.json
     ports:
-      - "5050:5050"
+      - "3333:3333"
       - "9222:9222"
     links:
       - mongo
