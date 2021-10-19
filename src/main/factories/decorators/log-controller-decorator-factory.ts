@@ -5,5 +5,6 @@ import { Controller } from '@presentation/protocols';
 export const makeLogControllerDecorator = (controller: Controller): Controller => {
   const logMongoRepository = new LogMongoRepository();
   console.log('teste');
+
   return new LogControllerDecorator(controller, logMongoRepository);
 };
